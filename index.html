@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ibadu Rahman International School | Quest for Excellence</title>
+    <meta name="description" content="Ibadu Rahman International School - Building disciplined leaders for this world and the hereafter through academic excellence and Islamic values.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0756A8;
+            --primary-deep: #033B73;
+            --primary-mid: #0A6BC4;
+            --primary-light: #EAF5FF;
+            --primary-very-light: #F6FAFE;
+            --white: #FFFFFF;
+            --dark: #102A43;
+            --muted: #526777;
+            --gold-accent: #FFC107;
+            --cyan-accent: #00B4D8;
+            --purple-accent: #6C63FF;
+            --background: #f4f7fc;
+            --light-blue-1: #e8f2ff;
+            --light-blue-2: #d4e6ff;
+            --very-light-blue: #f0f7ff;
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            --shadow-sm: 0 4px 6px rgba(3, 59, 115, 0.07);
+            --shadow-md: 0 10px 30px rgba(3, 59, 115, 0.1);
+            --shadow-lg: 0 20px 60px rgba(3, 59, 115, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--background);
+            color: var(--dark);
+            overflow-x: hidden;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ===== NAVBAR ===== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 2px 20px rgba(3, 59, 115, 0.06);
+            transition: var(--transition);
+            height: 90px;
+        }
+
+        .navbar.scrolled {
+            height: 70px;
+            box-shadow: 0 4px 30px rgba(3, 59, 115, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 100%;
+            gap: 20px;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            text-decoration: none;
+            flex-shrink: 0;
+        }
+
+        .nav-logo img {
+            height: 52px;
+            width: 52px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2.5px solid var(--primary-light);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .navbar.scrolled .nav-logo img {
+            height: 44px;
+            width: 44px;
+        }
+
+        .nav-logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+
+        .nav-logo-text .school-name {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 22px;
+            color: var(--primary-deep);
+            letter-spacing: -0.5px;
+            transition: var(--transition);
+        }
+
+        .navbar.scrolled .school-name {
+            font-size: 19px;
+        }
+
+        .nav-logo-text .motto {
+            font-size: 10px;
+            color: var(--muted);
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            list-style: none;
+            margin-left: auto;
+        }
+
+        .nav-menu li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-size: 14px;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+            padding: 4px 0;
+            white-space: nowrap;
+        }
+
+        .nav-menu li a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+            border-radius: 2px;
+        }
+
+        .nav-menu li a:hover {
+            color: var(--primary);
+        }
+
+        .nav-menu li a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-deep) 100%);
+            color: var(--white) !important;
+            padding: 14px 28px;
+            border-radius: 50px;
+            transition: var(--transition);
+            font-weight: 600;
+            font-size: 14px !important;
+            box-shadow: 0 4px 15px rgba(7, 86, 168, 0.3);
+        }
+
+        .nav-cta::after {
+            display: none !important;
+        }
+
+        .nav-cta:hover {
+            background: linear-gradient(135deg, var(--primary-deep) 0%, #021f3d 100%) !important;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(7, 86, 168, 0.4);
+        }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 8px;
+            z-index: 1001;
+        }
+
+        .nav-toggle span {
+            width: 28px;
+            height: 2.5px;
+            background: var(--primary-deep);
+            transition: var(--transition);
+            border-radius: 2px;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            margin-top: 90px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            transition: background-image 1s ease-in-out;
+            overflow: hidden;
+            background-blend-mode: overlay;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 40%;
+            background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+            z-index: 1;
+        }
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 120px 32px 80px;
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero-content {
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            padding: 10px 24px;
+            border-radius: 50px;
+            color: var(--white);
+            font-size: 14px;
+            margin-bottom: 30px;
+            letter-spacing: 1.5px;
+            font-weight: 600;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            animation: fadeInUp 1.2s ease-out 0.2s both;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 64px;
+            font-weight: 800;
+            color: #fff;
+            line-height: 1.15;
+            margin-bottom: 24px;
+            letter-spacing: -1px;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            animation: fadeInUp 1.2s ease-out 0.4s both;
+        }
+
+        .hero h1 .highlight {
+            display: block;
+            background: linear-gradient(90deg, #FFD700, #FFA500);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: none;
+        }
+
+        .hero-subtitle {
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.95);
+            margin: 0 auto 36px;
+            line-height: 1.8;
+            max-width: 700px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.4);
+            animation: fadeInUp 1.2s ease-out 0.6s both;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+            animation: fadeInUp 1.2s ease-out 0.8s both;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            color: var(--primary-deep);
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 16px;
+            box-shadow: 0 10px 30px rgba(255, 165, 0, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 165, 0, 0.6);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 16px;
+            border: 2px solid rgba(255,255,255,0.6);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.4);
+            border-color: #fff;
+            transform: translateY(-3px);
+        }
+
+        .hero-trust {
+            display: flex;
+            gap: 20px;
+            margin-top: 50px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1.2s ease-out 1s both;
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #fff;
+            font-size: 14px;
+            font-weight: 500;
+            background: rgba(255,255,255,0.2);
+            padding: 10px 20px;
+            border-radius: 50px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.3);
+            text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+        }
+
+        .trust-item svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--gold-accent);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            cursor: pointer;
+            background: rgba(255,255,255,0.2);
+            border: 2px solid rgba(255,255,255,0.5);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+            transition: var(--transition);
+        }
+
+        .scroll-indicator:hover {
+            background: rgba(255,255,255,0.4);
+            border-color: #fff;
+        }
+
+        .scroll-indicator svg {
+            width: 24px;
+            height: 24px;
+            fill: #fff;
+        }
+
+        /* ===== SCHOOL HIGHLIGHTS ===== */
+        .highlights {
+            padding: 100px 32px;
+            background: linear-gradient(180deg, var(--light-blue-1) 0%, var(--light-blue-2) 100%);
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-heading h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--primary-deep);
+            margin-bottom: 16px;
+            letter-spacing: -1px;
+        }
+
+        .section-heading p {
+            color: var(--muted);
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .highlight-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .highlight-card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid #e0e7ef;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .highlight-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--cyan-accent));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s;
+        }
+
+        .highlight-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+            border-color: rgba(7, 86, 168, 0.3);
+        }
+
+        .highlight-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .highlight-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-light), #ffffff);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: var(--primary);
+            font-size: 30px;
+            box-shadow: 0 4px 15px rgba(7,86,168,0.1);
+        }
+
+        .highlight-card h3 {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary-deep);
+            margin-bottom: 12px;
+        }
+
+        .highlight-card p {
+            color: var(--muted);
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        /* ===== PROPRIETOR'S WELCOME ===== */
+        .welcome-section {
+            padding: 100px 32px;
+            background: var(--light-blue-1);
+        }
+
+        .welcome-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 50px;
+            align-items: center;
+            background: var(--very-light-blue);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--light-blue-2);
+        }
+
+        .welcome-image {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            background: #e0e0e0;
+            height: 250px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #aaa;
+            font-size: 60px;
+        }
+
+        .welcome-text .small-label {
+            color: var(--primary);
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+
+        .welcome-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--primary-deep);
+            margin-bottom: 20px;
+        }
+
+        .welcome-text p {
+            color: var(--muted);
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .welcome-signature {
+            font-style: italic;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* ===== WHO WE ARE / ABOUT ===== */
+        .about-section {
+            padding: 100px 32px;
+            background: linear-gradient(180deg, var(--light-blue-2) 0%, var(--light-blue-1) 100%);
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-content .small-label {
+            color: var(--primary);
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+
+        .about-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 38px;
+            font-weight: 700;
+            color: var(--primary-deep);
+            margin-bottom: 20px;
+        }
+
+        .about-content p {
+            color: var(--muted);
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .vision-box {
+            background: #ffffff;
+            padding: 24px;
+            border-radius: 12px;
+            border-left: 5px solid var(--cyan-accent);
+            margin: 30px 0;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .vision-box strong {
+            color: var(--primary-deep);
+        }
+
+        .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 28px;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            background: #fff;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: var(--white);
+            box-shadow: 0 8px 25px rgba(7,86,168,0.3);
+        }
+
+        .about-image {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* ===== WHY CHOOSE US ===== */
+        .why-choose {
+            padding: 100px 32px;
+            background: var(--light-blue-1);
+        }
+
+        .why-choose .section-heading {
+            position: relative;
+        }
+
+        .why-choose .section-heading::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--cyan-accent));
+            margin: 20px auto 0;
+            border-radius: 3px;
+        }
+
+        .why-choose .section-heading h2 {
+            font-size: 46px;
+        }
+
+        .why-choose .section-heading p {
+            max-width: 800px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: var(--very-light-blue);
+            padding: 30px;
+            border-radius: 16px;
+            transition: var(--transition);
+            border: 1px solid var(--light-blue-2);
+            box-shadow: var(--shadow-sm);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--primary), var(--cyan-accent));
+            transform: scaleY(0);
+            transform-origin: top;
+            transition: transform 0.4s;
+        }
+
+        .feature-card:hover::before {
+            transform: scaleY(1);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+            border-color: rgba(7, 86, 168, 0.2);
+        }
+
+        .feature-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary-deep);
+            margin-bottom: 10px;
+            padding-left: 15px;
+        }
+
+        .feature-card p {
+            color: var(--muted);
+            font-size: 15px;
+            line-height: 1.6;
+            padding-left: 15px;
+        }
+
+        .closing-line {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 20px;
+            color: var(--primary-deep);
+            font-style: italic;
+            font-weight: 600;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: linear-gradient(135deg, #021f3d, #033B73);
+            color: rgba(255,255,255,0.85);
+            padding: 80px 32px 30px;
+            position: relative;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 40px;
+        }
+
+        .footer-brand img {
+            height: 60px;
+            width: 60px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .footer-brand h3 {
+            color: #fff;
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .footer-brand .motto {
+            color: rgba(255,255,255,0.7);
+            font-size: 12px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .footer h4 {
+            color: #fff;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: var(--gold-accent);
+        }
+
+        .footer p, .footer a {
+            color: rgba(255,255,255,0.75);
+            line-height: 1.8;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .footer a:hover {
+            color: var(--gold-accent);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .footer-social a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            transition: var(--transition);
+        }
+
+        .footer-social a:hover {
+            background: var(--gold-accent);
+            color: var(--primary-deep);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 13px;
+            color: rgba(255,255,255,0.6);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .hero h1 { font-size: 48px; }
+            .footer-container { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .navbar { height: 70px; }
+            .nav-container { padding: 0 20px; }
+            .nav-logo img { height: 40px; width: 40px; }
+            .nav-logo-text .school-name { font-size: 18px; }
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                flex-direction: column;
+                padding: 32px 24px;
+                gap: 20px;
+                transform: translateY(-200%);
+                transition: var(--transition);
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+                max-height: calc(100vh - 70px);
+                overflow-y: auto;
+            }
+            .nav-menu.active { transform: translateY(0); }
+            .nav-menu li a { font-size: 15px; display: block; padding: 8px 0; }
+            .nav-cta { display: inline-block; text-align: center; margin-top: 10px; }
+            .nav-toggle { display: flex; }
+            .nav-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(8px, 8px); }
+            .nav-toggle.active span:nth-child(2) { opacity: 0; }
+            .nav-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
+
+            .hero { margin-top: 70px; min-height: auto; padding: 80px 0; }
+            .hero-container { padding: 40px 20px; gap: 30px; }
+            .hero h1 { font-size: 36px; }
+            .hero-subtitle { font-size: 16px; margin-bottom: 30px; }
+            .hero-cta { flex-direction: column; align-items: center; }
+            .btn-primary, .btn-secondary { width: 100%; justify-content: center; padding: 16px 24px; font-size: 15px; }
+            .hero-trust { gap: 15px; flex-wrap: wrap; }
+            .trust-item { padding: 8px 15px; font-size: 12px; }
+
+            .welcome-container { grid-template-columns: 1fr; text-align: center; padding: 30px; }
+            .welcome-image { max-width: 250px; margin: 0 auto; height: 200px; }
+
+            .about-container { grid-template-columns: 1fr; }
+            .footer-container { grid-template-columns: 1fr; }
+            .section-heading h2 { font-size: 32px; }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 28px; }
+            .hero-badge { font-size: 11px; padding: 8px 16px; }
+            .hero-trust { flex-direction: column; gap: 10px; }
+            .trust-item { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTI_wd6oJX5xDKBMaDgxH-hFWXIFmpWXlz_sQDZS2LrSg&s=10" alt="Ibadu Rahman International School Logo" onerror="this.src='logo.jpg'">
+                <div class="nav-logo-text">
+                    <span class="school-name">Ibadu Rahman</span>
+                    <span class="motto">Quest for Excellence</span>
+                </div>
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about/index.html">About Us</a></li>
+                <li><a href="academics/index.html">Academics</a></li>
+                <li><a href="admissions/index.html">Admissions</a></li>
+                <li><a href="gallery/index.html">Gallery</a></li>
+                <li><a href="news-events/index.html">News & Events</a></li>
+                <li><a href="alumni/index.html">Alumni</a></li>
+                <li><a href="contact/index.html">Contact</a></li>
+                <li><a href="e-portal/index.html">E-Portal</a></li>
+                <li><a href="admissions/index.html" class="nav-cta">Apply Now</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">WELCOME TO IBADU RAHMAN INTERNATIONAL SCHOOL</div>
+                <h1>
+                    Building Disciplined Leaders for 
+                    <span class="highlight">This World and the Hereafter.</span>
+                </h1>
+                <p class="hero-subtitle">
+                    At Ibadu Rahman International School, we provide qualitative and affordable education that nurtures academic excellence, sound moral character, Islamic values and responsible leadership.
+                </p>
+                <div class="hero-cta">
+                    <a href="admissions/index.html" class="btn-primary">
+                        Apply for Admission
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </a>
+                    <a href="about/index.html" class="btn-secondary">
+                        Explore Our School
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4V8z" fill="currentColor"/></svg>
+                    </a>
+                </div>
+                <div class="hero-trust">
+                    <div class="trust-item"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg><span>Academic Excellence</span></div>
+                    <div class="trust-item"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg><span>Islamic Values</span></div>
+                    <div class="trust-item"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg><span>Character Development</span></div>
+                    <div class="trust-item"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg><span>Leadership</span></div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator" id="scrollIndicator">
+            <svg viewBox="0 0 24 24"><path d="M12 4v16m0 0l-6-6m6 6l6-6" stroke="white" stroke-width="2" fill="none"/></svg>
+        </div>
+    </section>
+
+    <!-- School Highlights -->
+    <section class="highlights">
+        <div class="section-heading">
+            <h2>A Foundation for Excellence</h2>
+            <p>Since 2009, Ibadu Rahman International School has remained committed to providing quality education in an environment where knowledge, character, faith and leadership grow together.</p>
+        </div>
+        <div class="highlight-grid">
+            <div class="highlight-card">
+                <div class="highlight-icon">
+                    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line><path d="M9 16l2 2 4-4"></path></svg>
+                </div>
+                <h3>Since 2009</h3>
+                <p>Building a lasting foundation for learning and character.</p>
+            </div>
+            <div class="highlight-card">
+                <div class="highlight-icon">
+                    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"></path><path d="M5 21V7l7-4 7 4v14"></path><path d="M9 21v-4h6v4"></path><path d="M9 9h6v4H9z"></path></svg>
+                </div>
+                <h3>Day & Boarding</h3>
+                <p>Flexible learning and living options designed to support every student.</p>
+            </div>
+            <div class="highlight-card">
+                <div class="highlight-icon">
+                    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10L12 5 2 10l10 5 10-5z"></path><path d="M6 12v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"></path></svg>
+                </div>
+                <h3>5 Educational Levels</h3>
+                <p>From Pre-School through Senior High School.</p>
+            </div>
+            <div class="highlight-card">
+                <div class="highlight-icon">
+                    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"></path></svg>
+                </div>
+                <h3>Nigerian Curriculum</h3>
+                <p>A structured academic foundation complemented by Islamic and moral education.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Proprietor's Welcome -->
+    <section class="welcome-section">
+        <div class="welcome-container">
+            <div class="welcome-image">
+                <svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" style="opacity:0.6;"><circle cx="12" cy="7" r="4"></circle><path d="M5.5 21c0-4 3-6.5 6.5-6.5s6.5 2.5 6.5 6.5"></path></svg>
+            </div>
+            <div class="welcome-text">
+                <div class="small-label">FROM THE PROPRIETOR</div>
+                <h2>Welcome to Our School</h2>
+                <p>
+                    "Dear Parents and Students, it is my joy to welcome you to Ibadu Rahman International School. Since 2009, we have been dedicated to nurturing young minds with a balanced education that combines academic excellence, moral uprightness, and Islamic values. Our goal is to develop disciplined leaders who will excel in this world and the hereafter. We believe every child is a trust from Allah, and we are committed to providing a safe, nurturing environment where they can grow intellectually, spiritually, and socially. Thank you for choosing us. Together, we will build a bright future for your child."
+                </p>
+                <span class="welcome-signature">— Proprietor, Ibadu Rahman International School</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who We Are -->
+    <section class="about-section">
+        <div class="about-container">
+            <div class="about-content">
+                <div class="small-label">ABOUT IBADU RAHMAN</div>
+                <h2>Where Knowledge Meets Character and Faith</h2>
+                <p>Founded in 2009, Ibadu Rahman International School is committed to providing qualitative and affordable education that prepares pupils and students for successful careers, responsible citizenship and meaningful leadership.</p>
+                <p>Our approach goes beyond the classroom. We seek to develop well-rounded individuals who are academically prepared, morally grounded, disciplined, responsible and conscious of their duties to Allah and humanity.</p>
+                <p>Through the Nigerian curriculum alongside comprehensive Islamic education, we create an environment where students can pursue academic excellence while developing sound character, faith and leadership qualities.</p>
+                <div class="vision-box">
+                    <strong>Vision:</strong> To build disciplined leaders — pupils and students prepared for the benefits of this world and the Hereafter — while making the school a reference point for others.
+                </div>
+                <a href="about/index.html" class="btn-outline">Discover Our Story</a>
+            </div>
+            <div class="about-image">
+                <img src="https://lh3.googleusercontent.com/grass-cs/ACvplmMxKDCk68vBtfc_Q4zUqmVNBfgE0vN66PfleICX4acHN4VQxZT-DBLq6JI69clSe1tBEMGe2FLqr_lRagC7fZj_P2LZLvGnP24ppQH_6lUDg59vvyKoShEY7qXbGpoyCXhxJUUY=s294-w294-h220-n-k-no" alt="School building">
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="why-choose">
+        <div class="section-heading">
+            <div class="small-label" style="text-align:center; display:block; margin-bottom:10px; color: var(--primary); font-weight:600; letter-spacing:2px;">WHY IBADU RAHMAN</div>
+            <h2>Education Beyond the Classroom</h2>
+            <p>We believe true education is not measured by academic achievement alone. It is reflected in the character, values, confidence and responsibility a child develops along the journey.</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card"><h3>Academic Excellence</h3><p>A strong academic foundation designed to equip students with the knowledge and skills they need for future success.</p></div>
+            <div class="feature-card"><h3>Islamic & Moral Education</h3><p>Nurturing students with Islamic knowledge, moral values and a consciousness of their responsibilities as individuals and members of society.</p></div>
+            <div class="feature-card"><h3>Discipline & Character</h3><p>Developing responsible, sensible, reasonable, reliable and accountable young people.</p></div>
+            <div class="feature-card"><h3>Leadership Development</h3><p>Preparing students to become confident and responsible leaders who can make meaningful contributions to society.</p></div>
+            <div class="feature-card"><h3>Qualified & Dedicated Teachers</h3><p>Supporting students through committed teaching, guidance and mentorship.</p></div>
+            <div class="feature-card"><h3>Conducive Learning Environment</h3><p>Providing an environment designed to support learning, personal growth and positive development.</p></div>
+            <div class="feature-card"><h3>Affordable Quality Education</h3><p>Pursuing qualitative education while maintaining our philosophy of sound education at a moderate fee.</p></div>
+            <div class="feature-card"><h3>Holistic Student Development</h3><p>Encouraging growth through academics, Islamic education, sports, competitions, clubs, excursions, creativity and other extracurricular activities.</p></div>
+        </div>
+        <p class="closing-line">"At Ibadu Rahman, we don't only prepare students for examinations. We prepare them for life, leadership and the Hereafter."</p>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTI_wd6oJX5xDKBMaDgxH-hFWXIFmpWXlz_sQDZS2LrSg&s=10" alt="Logo">
+                <h3>Ibadu Rahman</h3>
+                <div class="motto">Quest for Excellence</div>
+                <p>Building disciplined leaders for this world and the hereafter.</p>
+                <div class="footer-social">
+                    <a href="#" aria-label="Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+                    <a href="#" aria-label="Email"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
+                </div>
+            </div>
+            <div>
+                <h4>Quick Links</h4>
+                <a href="about/index.html">About Us</a>
+                <a href="academics/index.html">Academics</a>
+                <a href="admissions/index.html">Admissions</a>
+                <a href="gallery/index.html">Gallery</a>
+                <a href="contact/index.html">Contact</a>
+            </div>
+            <div>
+                <h4>Resources</h4>
+                <a href="news-events/index.html">News & Events</a>
+                <a href="alumni/index.html">Alumni</a>
+                <a href="e-portal/index.html">E-Portal</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+            <div>
+                <h4>Contact</h4>
+                <p>57 Unity Street, Papa Ibafo,<br>Ogun State, Nigeria</p>
+                <p>Phone: 08037136434<br>08081237686<br>08053071325</p>
+                <p>Email: ibadurahmaninternationalschool@gmail.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2025 Ibadu Rahman International School. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) navbar.classList.add('scrolled');
+            else navbar.classList.remove('scrolled');
+        });
+
+        // Mobile menu toggle
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.getElementById('navMenu');
+        navToggle.addEventListener('click', () => {
+            navToggle.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu on link click
+        navMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Smooth scroll
+        document.getElementById('scrollIndicator').addEventListener('click', () => {
+            window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
+        });
+
+        // Hero slideshow
+        const heroImages = [
+            'https://lh3.googleusercontent.com/grass-cs/ACvplmMxKDCk68vBtfc_Q4zUqmVNBfgE0vN66PfleICX4acHN4VQxZT-DBLq6JI69clSe1tBEMGe2FLqr_lRagC7fZj_P2LZLvGnP24ppQH_6lUDg59vvyKoShEY7qXbGpoyCXhxJUUY=s294-w294-h220-n-k-no',
+            'https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkzcZVgXDFskWVnnbtjoM9nRD5X0WkqVC4l35svFnXmQ7GsV7mHQbbAhLBJ7UAbf0xWdZuro79c_HN66dcNUvnUZAiha2c51QH7ADFnP22fVLk5HDQBXqlvCM4Y_e24ODSbj9p8=s1360-w1360-h1020-rw',
+            'https://lh3.googleusercontent.com/gps-cs-s/AHRPTWm9ygH6xKtOdbbhlMIf8OT8ltfiDcq1FvP718kddgI2A-sqbxFqQhjfHim9lrkCYNBDjDw0n7b7pYQw3K6vIxZ35TZKMPfA1Td0SXw_GmNF8jscV3PTQHttgWutphS6wO_roiGvbQ=s1360-w1360-h1020-rw'
+        ];
+        let currentImageIndex = 0;
+        const heroSection = document.getElementById('hero');
+        function changeHeroBackground() {
+            currentImageIndex = (currentImageIndex + 1) % heroImages.length;
+            heroSection.style.backgroundImage = `url('${heroImages[currentImageIndex]}')`;
+        }
+        heroSection.style.backgroundImage = `url('${heroImages[0]}')`;
+        setInterval(changeHeroBackground, 2000);
+
+        // Reveal animations
+        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.highlight-card, .feature-card, .about-content, .about-image, .welcome-text, .welcome-image').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
